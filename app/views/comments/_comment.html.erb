@@ -13,7 +13,6 @@
               <tr>
                 <td>
                   <a id="" href="">
-                    <%= image_tag("post.png") %>
                   </a>
                   <%= comment.created_at.strftime("%d %b %Y at %I:%M %p") %>
                 </td>
@@ -25,21 +24,17 @@
         </td>
       </tr>
       <tr>
-        <td  style="vertical-align:top">
-          <div >
-            <%= image_tag("blank_avatar.jpg") %>
+        <td style="vertical-align:top">
+          <div>
           </div>
           <br>
-          <span >
-            <%= image_tag("lev10.png") %>
-            <div >
+          <span>
+            <div>
               <% if current_user&.admin? %>
-                <%= image_tag("English_main_admin.png") %>
               <% else %>
-                <%= image_tag("English_moderator.png") %>
               <% end %>
             </div>
-            <span >
+            <span>
               <%= t("registered_member", number: comment.user.id) %>
             </span>
             <br>
@@ -51,7 +46,7 @@
             <br>
           </span>
         </td>
-        <td  style="vertical-align:top">
+        <td style="vertical-align:top">
           <% if comment.parent_comment %>
             <div>
               <em>
@@ -70,20 +65,20 @@
           <br>
           <% if comment.user&.signature %>
             <hr style="width:15%; text-align:left">
-            <span >
+            <span>
               <%= comment.user.signature %>
             </span>
           <% end %>
         </td>
       </tr>
       <tr>
-        <td ><span ><%= link_to t("back_to_top"),
+        <td><span><%= link_to t("back_to_top"),
             nil,
             id: "back-to-top",
             onclick: "window.scrollTo({top: 0, behavior: 'smooth'});" %>
           </span>
         </td>
-        <td  style="vertical-align:top">
+        <td style="vertical-align:top">
           <table cellspacing="0" cellpadding="0" style="width:100%">
             <tbody>
               <tr>

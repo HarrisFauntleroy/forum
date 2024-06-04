@@ -1,6 +1,6 @@
 <%= form_with(model: forum, local: true) do |form| %>
   <% if forum.errors.any? %>
-    <div >
+    <div>
       <h2><%= pluralize(forum.errors.count, "error") %>
         <%= t("prohibited_this_forum_from_being_saved") %>:</h2>
       <ul>
@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div >
+  <div>
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
-  <div >
+  <div>
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
 
   <%= form.collection_select :category_id, Category.all, :id, :name %>
 
-  <div >
+  <div>
     <%= link_to t("go_back"), :back %>
     <%= form.submit t("submit") %>
   </div>

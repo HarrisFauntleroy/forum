@@ -1,39 +1,36 @@
-<div >
-  <div >
-    <div >
-      <%= image_tag("bullet.png") %>
+<div>
+  <div>
+    <div>
       <span>
         <%= t("forums") %>
       </span>
     </div>
   </div>
 
-  <div >
+  <div>
     <%= render(BreadcrumbsComponent.new(items: @breadcrumbs)) %>
     <table style="width:100%">
       <tbody>
         <tr>
           <td style="width:80%">
-            <div >
-              <%= image_tag("e.png") %>
+            <div>
               <b>
                 <%= @forum.name %>
               </b>
             </div>
             <%= t("go_to_page") %>&nbsp; [<span style="text-decoration:underline">1</span>]
-            <a >2</a>
-            <a >3</a>
+            <a>2</a>
+            <a>3</a>
             ...
-            <a >89</a>
-            <a >90</a>
-            <a >91</a>
+            <a>89</a>
+            <a>90</a>
+            <a>91</a>
           </td>
           <td style="width:20%; text-align:right; vertical-align:bottom;">
           </td>
           <td style="width:20%; text-align:right; vertical-align:bottom;">
             <% if policy(@forum).create_topic? %>
               <%= link_to new_forum_topic_path(@forum) do %>
-                <%= image_tag("English_newthread.png") %>
               <% end %>
             <% end %>
           </td>
@@ -41,23 +38,23 @@
       </tbody>
     </table>
 
-    <table style="width:100%"  cellpadding="0" cellspacing="0">
+    <table style="width:100%" cellpadding="0" cellspacing="0">
       <tbody>
         <tr>
-          <td style="width:3%" >&nbsp;</td>
-          <td style="width:47%" ><%= t("topic") %></td>
-          <td style="width:20%; text-align:center" ><%= t("starter") %></td>
-          <td style="width:5%; text-align:center" ><%= t("replies") %></td>
-          <td style="width:5%; text-align:center" >Views</td>
-          <td style="width:20%; text-align:center" >Last Comment</td>
+          <td style="width:3%">&nbsp;</td>
+          <td style="width:47%"><%= t("topic") %></td>
+          <td style="width:20%; text-align:center"><%= t("starter") %></td>
+          <td style="width:5%; text-align:center"><%= t("replies") %></td>
+          <td style="width:5%; text-align:center">Views</td>
+          <td style="width:20%; text-align:center">Last Comment</td>
         </tr>
 
         <% if @forum.topics.where(sticky: true).or(@forum.topics.where(announcement: true)).any? %>
 
           <tr>
-            <td >&nbsp;</td>
-            <td colspan="6" >
-              <span >
+            <td>&nbsp;</td>
+            <td colspan="6">
+              <span>
                 <b><%= t("important_threads") %></b>
               </span>
             </td>
@@ -67,31 +64,23 @@
           <% @forum.topics.where(sticky: true).or(@forum.topics.where(announcement: true))
           .order(announcement: :desc, created_at: :desc).each do |topic| %>
             <tr>
-              <td
-                style="vertical-align:middle; text-align:center; width:3%"
-                
-              >
+              <td style="vertical-align:middle; text-align:center; width:3%">
                 <% if topic.announcement? %>
-                  <%= image_tag("announce.png") %>
                 <% else %>
-                  <%= image_tag("sticky_1.png") %>
                 <% end %>
               </td>
 
-              <td
-                style="vertical-align:middle; text-align:left; width:47%"
-                
-              >
+              <td style="vertical-align:middle; text-align:left; width:47%">
                 <table style="width:100%">
                   <tbody>
                     <tr>
                       <td style="width:90%">
-                        <span >
+                        <span>
                           <b>
                             <%= link_to topic.title, [@forum, topic] %>
                           </b>
                         </span>
-                        <span ></span>
+                        <span></span>
                       </td>
                       <td style="width:10%; white-space:nowrap;"></td>
                     </tr>
@@ -99,11 +88,8 @@
                 </table>
               </td>
 
-              <td
-                style="vertical-align:top; text-align:center; width:20%"
-                
-              >
-                <span >
+              <td style="vertical-align:top; text-align:center; width:20%">
+                <span>
                   <b>
                     <%= link_to topic.user.username, user_url(topic.user) %>
                   </b>
@@ -112,27 +98,18 @@
                 </span>
               </td>
 
-              <td
-                style="vertical-align:center; text-align:center; width:5%"
-                
-              >
-                <span >
+              <td style="vertical-align:center; text-align:center; width:5%">
+                <span>
                   <%= topic.comments_count %>
                 </span>
               </td>
 
-              <td
-                style="vertical-align:center; text-align:center; width:5%"
-                
-              >
-                <span >0</span>
+              <td style="vertical-align:center; text-align:center; width:5%">
+                <span>0</span>
               </td>
 
-              <td
-                style="vertical-align:top; text-align:center; width:20%"
-                
-              >
-                <span >
+              <td style="vertical-align:top; text-align:center; width:20%">
+                <span>
                   <%= link_to topic.user.username, user_url(topic.user) %>
                   <br/>
                   <%= topic.created_at.strftime("%a %b %d %Y, %I:%M%p") %>
@@ -143,9 +120,9 @@
         <% end %>
 
         <tr>
-          <td >&nbsp;</td>
-          <td colspan="6" >
-            <span >
+          <td>&nbsp;</td>
+          <td colspan="6">
+            <span>
               <b><%= t("forum_threads") %></b>
             </span>
           </td>
@@ -154,27 +131,20 @@
         <% if @forum.topics.where(sticky: false).or(@forum.topics.where(announcement: false)).any? %>
           <% @forum.topics.where(sticky: false).and(@forum.topics.where(announcement: false)).each do |topic| %>
             <tr>
-              <td
-                style="vertical-align:middle; text-align:center; width:3%"
-                
-              >
-                <%= image_tag("nonew_popular.png") %>
+              <td style="vertical-align:middle; text-align:center; width:3%">
               </td>
 
-              <td
-                style="vertical-align:middle; text-align:left; width:47%"
-                
-              >
+              <td style="vertical-align:middle; text-align:left; width:47%">
                 <table style="width:100%">
                   <tbody>
                     <tr>
                       <td style="width:90%">
-                        <span >
+                        <span>
                           <b>
                             <%= link_to topic.title, [@forum, topic] %>
                           </b>
                         </span>
-                        <span ></span>
+                        <span></span>
                       </td>
                       <td style="width:10%; white-space:nowrap;"></td>
                     </tr>
@@ -182,11 +152,8 @@
                 </table>
               </td>
 
-              <td
-                style="vertical-align:top; text-align:center; width:20%"
-                
-              >
-                <span >
+              <td style="vertical-align:top; text-align:center; width:20%">
+                <span>
                   <b>
                     <%= link_to topic.user.username, user_url(topic.user) %>
                   </b>
@@ -195,27 +162,18 @@
                 </span>
               </td>
 
-              <td
-                style="vertical-align:center; text-align:center; width:5%"
-                
-              >
-                <span >
+              <td style="vertical-align:center; text-align:center; width:5%">
+                <span>
                   <%= topic.comments_count %>
                 </span>
               </td>
 
-              <td
-                style="vertical-align:center; text-align:center; width:5%"
-                
-              >
-                <span >0</span>
+              <td style="vertical-align:center; text-align:center; width:5%">
+                <span>0</span>
               </td>
 
-              <td
-                style="vertical-align:top; text-align:center; width:20%"
-                
-              >
-                <span >
+              <td style="vertical-align:top; text-align:center; width:20%">
+                <span>
                   <%= link_to topic.user.username, user_url(topic.user) %>
                   <br/>
                   <%= topic.created_at.strftime("%a %b %d %Y, %I:%M%p") %>
@@ -234,17 +192,17 @@
     <tbody>
       <tr>
         <td style="width:80%">
-          <span ><%= t("go_to_page") %>&nbsp; [<span style="text-decoration:underline">1</span>]
-            <a >2</a>
-            <a >3</a>
+          <span><%= t("go_to_page") %>&nbsp; [<span style="text-decoration:underline">1</span>]
+            <a>2</a>
+            <a>3</a>
             ...
-            <a >89</a>
-            <a >90</a>
-            <a >91</a>
+            <a>89</a>
+            <a>90</a>
+            <a>91</a>
           </span>
           <form>
             <p><%= t("jump_to_forum") %>:
-              <select name="forumjump" >
+              <select name="forumjump">
                 <option value="2">General Chatting</option>
                 <option value="8">Sale and Trade</option>
                 <option value="9">General Science and Electronics</option>
@@ -261,7 +219,7 @@
                 <option value="23">HvWiki Discussion</option>
               </select>
 
-              <input  type="submit" name="fjsubmit" value="Go"/>&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="submit" name="fjsubmit" value="Go"/>&nbsp;&nbsp;&nbsp;&nbsp;
               <td style="width:20%; text-align:right"/>
             </p>
           </form>
@@ -271,90 +229,78 @@
     </tbody>
   </table>
 
-  <div >
-    <table style="width:100%"  cellpadding="0" cellspacing="0">
+  <div>
+    <table style="width:100%" cellpadding="0" cellspacing="0">
       <tbody>
         <tr>
-          <td style="vertical-align:center; width:50%" >
-            <span >This forum is moderated by: Chris Russell, Noelle, Alex,
-              Tesladownunder, Dave Marshall, Bjørn, Dave Billington, Steve
-              McConner, Anders M.
+          <td style="vertical-align:center; width:50%">
+            <span>This forum is moderated by:
+              <%= @users_presenter.moderators_list %>
             </span>
           </td>
 
-          <td
-            style="text-align:right; vertical-align:center; width:50%"
-            
-          >
-            <span >1 user is browsing this forum at the moment (0 members, 1 guest)
+          <td style="text-align:right; vertical-align:center; width:50%">
+            <span>1 user is browsing this forum at the moment (0 members, 1 guest)
             </span>
           </td>
         </tr>
 
         <tr>
-          <td style="vertical-align:center; width:50%" >
+          <td style="vertical-align:center; width:50%">
             <table style="width:100%">
               <tbody>
                 <tr>
                   <td style="vertical-align:middle; text-align:center; width:2%">
-                    <%= image_tag("new_small.png") %>
                   </td>
 
-                  <td style="width:10%" >New comments</td>
+                  <td style="width:10%">New comments</td>
 
                   <td style="vertical-align:middle; text-align:center; width:2%">
-                    <%= image_tag("nonew_small.png") %>
                   </td>
 
-                  <td style="width:10%" >
+                  <td style="width:10%">
                     <%= t("no_new_comments") %>
                   </td>
 
                   <td style="vertical-align:middle; text-align:center; width:2%">
-                    <%= image_tag("sticky_small.png") %>
                   </td>
 
-                  <td style="width:10%" >Sticky</td>
+                  <td style="width:10%">Sticky</td>
 
                   <td style="vertical-align:middle; text-align:center; width:2%">
-                    <%= image_tag("announce_small.png") %>
                   </td>
 
-                  <td style="width:10%" >
+                  <td style="width:10%">
                     <%= t("announcement") %>
                   </td>
                 </tr>
 
                 <tr>
                   <td style="vertical-align:middle; text-align:center; width:2%">
-                    <%= image_tag("new_popular_small.png") %>
                   </td>
 
-                  <td style="width:2%" >
+                  <td style="width:2%">
                     <%= t("new_comments_popular") %>
                   </td>
 
                   <td style="vertical-align:middle; text-align:center; width:2%">
-                    <%= image_tag("nonew_popular_small.png") %>
                   </td>
 
-                  <td style="width:10%" >
+                  <td style="width:10%">
                     <%= t("no_new_comments_popular") %>
                   </td>
 
                   <td style="vertical-align:middle; text-align:center; width:2%">
-                    <%= image_tag("sticky_closed_small.png") %>
                   </td>
 
-                  <td style="width:10%" >
+                  <td style="width:10%">
                     <%= t("sticky_closed") %>
                   </td>
 
                   <td style="vertical-align:middle; text-align:center; width:2%">
-                    <%= image_tag("closed_small.png") %>>
                   </td>
 
-                  <td style="width:10%" >
+                  <td style="width:10%">
                     <%= t("closed_thread") %>
                   </td>
                 </tr>
@@ -362,10 +308,7 @@
             </table>
           </td>
 
-          <td
-            style="vertical-align:center; text-align:center; width:50%"
-            
-          >
+          <td style="vertical-align:center; text-align:center; width:50%">
             <%= t("you") %>
             <b><%= t("can") %></b>
             <%= t("start_new_threads_you") %>
@@ -377,10 +320,10 @@
             <br/>
             <form method="get" action="../../search.php">
               <p>
-                <input  type="text" name="q" size="20" value="" maxlength="50"/>
+                <input type="text" name="q" size="20" value="" maxlength="50"/>
                 <input type="hidden" name="r" value="0 "/>
                 <input type="hidden" name="ref" value="forum "/>
-                <input  type="submit" name="s" value="Search "/>
+                <input type="submit" name="s" value="Search "/>
               </p>
             </form>
           </td>
@@ -389,7 +332,7 @@
     </table>
   </div>
 
-  <div  style="text-align:center"><%= t("powered_by") %>
+  <div style="text-align:center"><%= t("powered_by") %>
     <b><%= t("coffee") %></b>
   </div>
 </div>

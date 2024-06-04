@@ -1,19 +1,18 @@
-<div >
-  <div >
-    <div >
-      <%= image_tag("bullet.png") %>
+<div>
+  <div>
+    <div>
       <span>
         <%= t("forums") %>
       </span>
     </div>
   </div>
-  <div >
-    <td >
-      <table style="width:100%"  cellpadding="0" cellspacing="0">
+  <div>
+    <td>
+      <table style="width:100%" cellpadding="0" cellspacing="0">
         <tbody>
           <%= render(BreadcrumbsComponent.new(items: @breadcrumbs)) %>
           <tr>
-            <td  colspan="2">
+            <td colspan="2">
               <table cellspacing="0" cellpadding="0" style="width:100%">
                 <tbody>
                   <tr>
@@ -36,13 +35,12 @@
         <tbody>
           <tr>
             <td style="width:60%">
-              <div >
-                <%= image_tag("e.png") %>
+              <div>
                 <b>
                   <%= @topic.title %>
                 </b>
               </div><br><%= t("go_to_page") %>&nbsp; <!-- Start of Next/Prev --> [<span style="text-decoration:underline">1</span>]
-              <a  href="">2</a>
+              <a href="">2</a>
               <!-- End of Next/Prev -->
             </td>
             <td style="width:40%; text-align: right; vertical-align:bottom;"></td>
@@ -50,39 +48,39 @@
         </tbody>
       </table>
 
-      <table style="width:100%"  cellpadding="0" cellspacing="0">
+      <table style="width:100%" cellpadding="0" cellspacing="0">
         <tbody>
           <tr>
-            <td style="width:20%; text-align:center" >
+            <td style="width:20%; text-align:center">
               <%= t("author") %>
             </td>
-            <td style="width:80%; text-align:center" >
-              <!-- <%= t("comment") %> -->
+            <td style="width:80%; text-align:center">
+              <!--
+              <%= t("comment") %>
+              -->
             </td>
           </tr>
         </tbody>
       </table>
 
-      <div >
-        <table style="width:100%"  cellpadding="0" cellspacing="0">
+      <div>
+        <table style="width:100%" cellpadding="0" cellspacing="0">
           <tbody>
             <tr>
-              <td  style="vertical-align:middle; width:20%;"><a href="../../user.php?id.1225"><b>
+              <td style="vertical-align:middle; width:20%;"><a href="../../user.php?id.1225"><b>
                     <%= link_to @topic.user.username, user_url(@topic.user) %>
                   </b></a></td>
-              <td  style="vertical-align:middle; width:80%;">
+              <td style="vertical-align:middle; width:80%;">
                 <table cellspacing="0" cellpadding="0" style="width:100%">
                   <tbody>
                     <tr>
-                      <td >
+                      <td>
                         <a id="comment_66240" href="">
-                          <%= image_tag("post.png") %>
                         </a>
                         <%= @topic.created_at.strftime("%d %b %Y at %I:%M %p") %>
                       </td>
                       <td style="text-align:right">
                         <a href="/print.php?plugin:forum.66240">
-                          <%= image_tag("printer.png") %>
                         </a>
                       </td>
                     </tr>
@@ -91,41 +89,39 @@
               </td>
             </tr>
             <tr>
-              <td  style="vertical-align:top">
-                <div >
-                  <%= image_tag("blank_avatar.jpg") %>
-                </div><br><span >
-                  <div >
-                    <%= image_tag("lev3.png") %>
+              <td style="vertical-align:top">
+                <div>
+                </div><br><span>
+                  <div>
                   </div>
-                  <span >
+                  <span>
                     <%= t("registered_member", number: @topic.user.id) %>
                   </span>
                   <br><%= t("joined") %>: Fri Jan 11 2008, 07:24PM<br>Location: Beaumont, Texas, USA<br>Posts: 1814<br>
                 </span>
               </td>
-              <td  style="vertical-align:top">
+              <td style="vertical-align:top">
                 <%= @topic.content %><br><br><br><br><br><br>
                 <% if @topic.user&.signature %>
                   <hr style="width:15%; text-align:left">
-                  <span >
+                  <span>
                     <%= @topic.user.signature %>
                   </span>
                 <% end %>
               </td>
             </tr>
             <tr>
-              <td ><span ><%= link_to t("back_to_top"),
+              <td><span><%= link_to t("back_to_top"),
                   nil,
                   id: "back-to-top",
                   onclick: "window.scrollTo({top: 0, behavior: 'smooth'});" %>
                 </span></td>
-              <td  style="vertical-align:top">
+              <td style="vertical-align:top">
                 <table cellspacing="0" cellpadding="0" style="width:100%">
                   <tbody>
                     <tr>
                       <td style="text-align:right">
-                        <div >
+                        <div>
                           <% if policy(@topic).edit? %>
                             <%= link_to t("edit_topic"), edit_forum_topic_path(@forum, @topic) %>
                           <% end %>
@@ -158,22 +154,22 @@
       <% if policy(@topic).create_comment? %>
         <%= render "comments/form", comment: @topic.comments.build %>
       <% end %>
-      <div >
-        <div >
+      <div>
+        <div>
           <%= t("go_to_page") %>&nbsp; <!-- Start of Next/Prev --> [<span style="text-decoration:underline">1</span>]
-          <a  href="">2</a>
+          <a href="">2</a>
           <!-- End of Next/Prev -->
         </div>
         <br>
-        <table style="width:100%"  cellpadding="0" cellspacing="0">
+        <table style="width:100%" cellpadding="0" cellspacing="0">
           <tbody>
             <tr>
-              <td style="width:50%; text-align:left; vertical-align:top" >
+              <td style="width:50%; text-align:left; vertical-align:top">
                 <b><%= t("moderators") %>: Chris Russell, Noelle, Alex, Tesladownunder, Dave Marshall,
                   Bjørn, Dave Billington, Steve McConner, Anders M.</b><br>
                 <form method="comment" action="">
                   <p><%= t("jump") %>:
-                    <select name="forumjump" >
+                    <select name="forumjump">
                       <option value="2">General Chatting</option>
                       <option value="8">Sale and Trade</option>
                       <option value="9">General Science and Electronics</option>
@@ -189,33 +185,30 @@
                       <option value="21">Attachments</option>
                       <option value="23">HvWiki Discussion</option>
                     </select>
-                    <input  type="submit" name="fjsubmit" value="Go">&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to t("back_to_top"),
+                    <input type="submit" name="fjsubmit" value="Go">&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to t("back_to_top"),
                     nil,
                     id: "back-to-top",
                     onclick: "window.scrollTo({top: 0, behavior: 'smooth'});" %>
                   </p>
                 </form>
               </td>
-              <td
-                style="width:50%; text-align:right; vertical-align:top"
-                
-              ></td>
+              <td style="width:50%; text-align:right; vertical-align:top"></td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <div >
-        <table style="width:100%"  cellpadding="0" cellspacing="0">
+      <div>
+        <table style="width:100%" cellpadding="0" cellspacing="0">
           <tbody>
             <tr>
-              <td style="text-align:center" >
+              <td style="text-align:center">
 
               </td>
             </tr>
           </tbody>
         </table>
-        <div  style="text-align:center"><%= t("powered_by") %>
+        <div style="text-align:center"><%= t("powered_by") %>
           <b><%= t("coffee") %></b>
         </div>
       </div>

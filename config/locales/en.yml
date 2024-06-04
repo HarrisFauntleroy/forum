@@ -10,7 +10,6 @@ en:
   cancel_my_account: Cancel my account
   change_my_password: Change my password
   characters_minimum: characters minimum
-  chat_room: Chat Room
   click_the_link_below_to_unlock_your_account: Click the link below to unlock your account
   closed_thread: Closed Thread
   coffee: Coffee
@@ -19,8 +18,6 @@ en:
   comments: Comments
   confirm_my_account: Confirm my account
   confirm_new_password: Confirm new password
-  contact: Contact
-  contact_sidebar_text: 'If you need assistance, please send an email to forum at 4hv dot org. To ensure your email is not marked as spam, please include the phrase "4hv help" in the subject line. You can also find assistance via IRC, at irc.shadowworld.net, room #hvcomm.'
   create_topic: Create Topic
   currently_waiting_confirmation_for: 'Currently waiting confirmation for: '
   delete: "🗑️"
@@ -28,14 +25,13 @@ en:
     change_your_password: Change your password
     didnt_receive_confirmation_instructions: Didn"t receive confirmation instructions?
     didnt_receive_unlock_instructions: Didn"t receive unlock instructions?
-    forgot_your_password: Forgot your password?
+    forgot_your_password: Forgot your contact?
     log_in: Log in
     omniauth_providers:
       sign_in_with: 'Sign in with '
     resend_unlock_instructions: Resend unlock instructions
     sign_out: Sign out
     sign_up: Sign up
-  donate: 4hv.org is hosted on a dedicated server. Unfortunately, this server costs and we rely on the help of site members to keep 4hv.org running. Please consider donating. We will place your name on the thanks list and you"ll be helping to keep 4hv.org alive and free for everyone. Members whose names appear in red bold have donated recently. Green bold denotes those who have recently donated to keep the server carbon neutral.
   edit: "✏️"
   edit_category: Edit Category
   edit_comment: Edit Comment
@@ -52,10 +48,8 @@ en:
   go_back: Go Back
   go_home: Go Home
   go_to_page: Go to page
-  guests: Guests
   hello: Hello
   home: Home
-  hv_wiki: HvWiki
   if_you_didnt_request_this_please_ignore_this_email: If you didn"t request this, please ignore this email
   important_threads: Important Threads
   joined: Joined
@@ -65,26 +59,19 @@ en:
   leave_blank_if_you_dont_want_to_change_it: Leave blank if you don"t want to change it
   location: Location
   main_menu: Main Menu
-  member_map: Member Map
-  members: Members
-  members_birthdays: Members Birthdays
   moderator: Moderator
   moderators: Moderators
-  most_ever_online: Most Ever Online
   new_category: New Category
   new_comment: New Comment
   new_comments_popular: New comments [popular]
   new_forum: New Forum
   new_password: New password
   new_topic: New Topic
-  newest_member: Newest Member
-  next_birthdays: Next Birthdays
   next_thread: Next Thread
   no_comments_yet: No comments yet
   no_new_comments: No new comments
   no_new_comments_popular: No new comments [popular]
   no_recent_activity_to_display: No recent activity to display
-  online: Online
   powered_by: Powered by
   previous_thread: Previous Thread
   prohibited_this_category_from_being_saved: prohibited this category from being saved
@@ -136,7 +123,6 @@ en:
   starter: Starter
   sticky_closed: Sticky/Closed
   submit: Submit
-  support_4hv: Support 4hv.org!
   the_page_you_were_looking_for_doesnt_exist: The page you were looking for doesn't exist.
   there_are_no_comments_in_this_topic_yet: There are no comments in this topic yet
   there_are_no_topics_in_this_forum_yet: There are no topics in this forum yet.

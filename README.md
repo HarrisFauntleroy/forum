@@ -25,13 +25,7 @@
     </a>
 </p>
 
-<!-- PROJECT_DESCRIPTION -->
-
 A full-featured forum application built with Ruby on Rails.
-
-<!-- PROJECT_SCREENSHOT -->
-
-<!-- 🚧 -->
 
 ## Table of Contents ⚙️
 
@@ -43,7 +37,23 @@ A full-featured forum application built with Ruby on Rails.
 
 ## Features 💫
 
-- 🚧
+**User Authentication**
+- [x] Users can sign up, sign in, and sign out.
+
+**Administrative Controls**
+- [x] Admins can create categories to group forums.
+- [x] Admins and moderators can create forums within categories.
+- [ ] Moderators are assigned to individual forums.
+
+**User Interaction**
+- [x] Users can create topics, comment on topics, and reply to comments.
+- [ ] Private messaging between users.
+- [ ] Reporting system for posts, with moderation handled by admins and moderators.
+
+**Content Formatting**
+- [ ] Supports LaTeX/KaTeX for mathematical expressions.
+- [ ] Markdown support for text formatting.
+- [ ] Users can upload and share images.
 
 ## Local Development 💻
 
@@ -51,14 +61,9 @@ Here's how you can set up forum in your local dev environment:
 
 **Requirements**
 
-<!-- LIST OF REQUIREMENTS -->
-
 - Ruby >= 3.3.1
-<!-- - Docker (for running Postgres, Redis, etc.) 🐳 -->
 
 Ruby is managed using Ruby Version Manager
-
-<!-- <a href="https://github.com/nvm-sh/logos"><img alt="nvm project logo" src="https://raw.githubusercontent.com/nvm-sh/logos/HEAD/nvm-logo-color.svg" height="50" /></a> -->
 
 ```bash
 # Update ruby version
@@ -66,8 +71,6 @@ rvm use <version>
 ```
 
 **Installation**
-
-<!-- INSTALLATION INSTRUCTIONS -->
 
 Install the required gems by running the following command:
 
@@ -136,15 +139,11 @@ To format and lint the code
 make pretty
 ```
 
-<!-- _Please refer to the package.json for additional details and scripts._ -->
-
 ## Contributing 🤝
 
-<!-- GUIDELINES FOR CONTRIBUTION -->
 
 ## License ⚖️
 
-<!-- Distributed under the MIT License. See `LICENSE` for more information. -->
 
 ## Disclaimer 🚨
 

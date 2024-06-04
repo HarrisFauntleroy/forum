@@ -6,7 +6,6 @@
     <title>Todo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <!-- Add custom stylesheets and scripts here -->
@@ -14,11 +13,9 @@
   </head>
   <body>
     <%= render "shared/site_header" %>
-    <main >
-      <div >
-        <%= render "shared/sidebar" %>
-        <%= render "shared/site_content" %>
-      </div>
+    <main>
+      <%= render "shared/sidebar" %>
+      <%= render "shared/site_content" %>
     </main>
     <%= render "shared/site_footer" %>
   </body>

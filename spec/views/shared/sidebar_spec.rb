@@ -65,33 +65,4 @@ RSpec.describe 'shared/_sidebar', type: :view do
       end
     end
   end
-
-  it 'contains "Online" section' do
-    render
-    expect(rendered).to have_content(t('online'))
-    # TODO: 'add online users'
-    # todo 'add members count'
-    # todo 'add newest member'
-    # todo 'most ever online'
-  end
-
-  it 'contains "Members Birthdays" section' do
-    render
-    expect(rendered).to have_content(t('members_birthdays'))
-    # TODO: 'add members birthdays'
-  end
-
-  it 'contains "Contact" section' do
-    render
-    expect(rendered).to have_content(t('contact'))
-    expect(rendered).to have_content(t('contact_sidebar_text'))
-    # TODO: 'add contact link'
-  end
-
-  it 'contains "Support 4hv.org!" section' do
-    render
-    expect(rendered).to have_content(t('support_4hv'))
-    expect(rendered).to have_content(t('donate'))
-    # TODO: 'add donate link'
-  end
 end

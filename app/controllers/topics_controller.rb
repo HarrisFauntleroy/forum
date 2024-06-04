@@ -14,7 +14,7 @@ class TopicsController < ApplicationController
     @topic = @forum.topics.includes(:user, comments: :user).find(params[:id])
 
     @breadcrumbs = [
-      { title: '4hv.org', path: root_path },
+      { title: 'Home', path: root_path },
       { title: 'Forums', path: forums_path },
       { title: @forum.name, path: forum_path(@forum) },
       { title: @topic.title, path: forum_topic_path(@forum, @topic) }
