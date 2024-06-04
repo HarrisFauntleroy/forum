@@ -1,0 +1,51 @@
+<div >
+  <div >
+    <div >
+      <%= image_tag("bullet.png") %>
+      <span><%= t("forums") %></span>
+    </div>
+  </div>
+  <div >
+    <% @categories.each do |category| %>
+      <table >
+        <tbody>
+          <tr>
+            <td colspan="6" >
+              <%= category.name %>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" style="width:60%; text-align:center" >Forums</td>
+            <td style="width:10%; text-align:center" ><%= t("topics") %></td>
+            <td style="width:10%; text-align:center" ><%= t("replies") %></td>
+            <td style="width:20%; text-align:center" ><%= t("last_comment") %></td>
+            <% if current_user&.admin? %>
+              <td style="width:20%; text-align:center" ><%= t("actions") %></td>
+            <% end %>
+          </tr>
+          <% category.forums.each do |forum| %>
+            <%= render(ForumComponent.new(forum: forum)) %>
+          <% end %>
+        </tbody>
+        <tfoot >
+          <div >
+            <% if policy(category).destroy? %>
+              <%= button_to t("delete"), category, id: "delete_category_button", method: :delete, data: {   turbo_confirm: t("are_you_sure"), } %>
+            <% end %>
+            <% if policy(category).edit? %>
+              <%= link_to t("edit"), 
+              edit_category_path(category), 
+              id: "edit_category_link" %>
+            <% end %>
+          </div>
+        </tfoot>
+      </table>
+    <% end %>
+  </div>
+  <div >
+    <% if current_user&.admin? %>
+      <%= link_to t("new_category"), new_category_path, id: "new_category_link" %>
+      <%= link_to t("new_forum"), new_forum_path %>
+    <% end %>
+  </div>
+</div>

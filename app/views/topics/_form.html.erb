@@ -1,0 +1,36 @@
+<%= form_with(model: [@forum, topic], local: true) do |form| %>
+  <% if topic.errors.any? %>
+    <div >
+      <h2><%= pluralize(topic.errors.count, "error") %>
+        <%= t("prohibited_this_topic_from_being_saved") %>:</h2>
+      <ul>
+        <% topic.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div >
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div >
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div >
+    <%= form.label :sticky %>
+    <%= form.check_box :sticky %>
+
+    <%= form.label :announcement %>
+    <%= form.check_box :announcement %>
+  </div>
+
+  <div >
+    <%= link_to t("go_back"), :back %>
+    <%= form.submit t("create_topic") %>
+  </div>
+<% end %>

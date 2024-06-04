@@ -1,0 +1,119 @@
+<div id="comment-<%= comment.id %>">
+  <table style="width:100%" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="vertical-align:middle; width:20%;">
+          <b>
+            <%= link_to comment.user.username, user_url(comment.user) %>
+          </b>
+        </td>
+        <td style="vertical-align:middle; width:80%;">
+          <table cellspacing="0" cellpadding="0" style="width:100%">
+            <tbody>
+              <tr>
+                <td>
+                  <a id="" href="">
+                    <%= image_tag("post.png") %>
+                  </a>
+                  <%= comment.created_at.strftime("%d %b %Y at %I:%M %p") %>
+                </td>
+                <td style="text-align:right">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td  style="vertical-align:top">
+          <div >
+            <%= image_tag("blank_avatar.jpg") %>
+          </div>
+          <br>
+          <span >
+            <%= image_tag("lev10.png") %>
+            <div >
+              <% if current_user&.admin? %>
+                <%= image_tag("English_main_admin.png") %>
+              <% else %>
+                <%= image_tag("English_moderator.png") %>
+              <% end %>
+            </div>
+            <span >
+              <%= t("registered_member", number: comment.user.id) %>
+            </span>
+            <br>
+            <%= t("joined") %>: Thu Oct 09 2008, 09:04PM
+            <br>
+            <%= t("location") %>: Claremont New Hampshire
+            <br>
+            <%= t("comments") %>: 270
+            <br>
+          </span>
+        </td>
+        <td  style="vertical-align:top">
+          <% if comment.parent_comment %>
+            <div>
+              <em>
+                <%= comment.parent_comment.user.username %>
+                <%= t("wrote") %>
+              </em>
+              ...
+              <br>
+              <br>
+              <%= comment.parent_comment.content %>
+              <br>
+            </div>
+          <% end %>
+          <br>
+          <%= comment.content %>
+          <br>
+          <% if comment.user&.signature %>
+            <hr style="width:15%; text-align:left">
+            <span >
+              <%= comment.user.signature %>
+            </span>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td ><span ><%= link_to t("back_to_top"),
+            nil,
+            id: "back-to-top",
+            onclick: "window.scrollTo({top: 0, behavior: 'smooth'});" %>
+          </span>
+        </td>
+        <td  style="vertical-align:top">
+          <table cellspacing="0" cellpadding="0" style="width:100%">
+            <tbody>
+              <tr>
+                <td style="text-align:right">
+                  <div>
+                    <% if policy(comment).create? %>
+                      <%= link_to t("reply"),
+                      new_topic_comment_path(@topic, parent_comment_id: comment.id) %>
+                    <% end %>
+
+                    <% if policy(comment).edit? %>
+                      <%= link_to t("edit"), edit_topic_comment_path(@topic, comment) %>
+                    <% end %>
+
+                    <% if policy(comment).destroy? %>
+                      <%= button_to t("delete"),
+                      [@topic, comment],
+                      method: :delete,
+                      data: {
+                        confirm: t("are_you_sure"),
+                        turbo_confirm: t("are_you_sure"),
+                      } %>
+                    <% end %>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,10 @@
+<nav>
+  <% @breadcrumbs.each do |crumb| %>
+    <% if crumb[:path] %>
+      <%= link_to crumb[:title], crumb[:path] %>
+    <% else %>
+      <%= crumb[:title] %>
+    <% end %>
+    <%= "::" unless crumb == @breadcrumbs.last %>
+  <% end %>
+</nav>

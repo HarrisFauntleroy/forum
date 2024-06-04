@@ -1,0 +1,26 @@
+<div >
+  <%= form_with(model: [@topic, comment], local: true) do |form| %>
+    <% if comment.errors.any? %>
+      <div>
+        <h2><%= pluralize(comment.errors.count, "error") %>
+          <%= t("prohibited_this_comment_from_being_saved") %>:</h2>
+        <ul>
+          <% comment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form.hidden_field :parent_comment_id, value: @parent_comment_id %>
+
+    <div>
+      <%= form.label t("reply") %>
+      <%= form.text_area :content %>
+    </div>
+
+    <div>
+      <%= form.submit t("submit") %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,30 @@
+<%= form_with(model: forum, local: true) do |form| %>
+  <% if forum.errors.any? %>
+    <div >
+      <h2><%= pluralize(forum.errors.count, "error") %>
+        <%= t("prohibited_this_forum_from_being_saved") %>:</h2>
+      <ul>
+        <% forum.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div >
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div >
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <%= form.collection_select :category_id, Category.all, :id, :name %>
+
+  <div >
+    <%= link_to t("go_back"), :back %>
+    <%= form.submit t("submit") %>
+  </div>
+<% end %>
