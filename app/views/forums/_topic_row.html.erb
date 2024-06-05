@@ -1,0 +1,22 @@
+<tr>
+  <td class="align-middle text-center" style="width: 3%"></td>
+  <td class="align-middle" style="width: 47%">
+    <div class="d-flex justify-content-between">
+      <span><b><%= link_to topic.title, [@forum, topic] %></b></span>
+    </div>
+  </td>
+  <td class="align-middle text-center" style="width: 20%">
+    <span>
+      <b><%= link_to topic.user.username, user_url(topic.user) %></b><br/>
+      <%= topic.created_at.strftime("%a %b %d %Y, %I:%M%p") %>
+    </span>
+  </td>
+  <td class="align-middle text-center" style="width: 5%"><span><%= topic.comments_count %></span></td>
+  <td class="align-middle text-center" style="width: 5%"><span>0</span></td>
+  <td class="align-middle text-center" style="width: 20%">
+    <span>
+      <%= link_to topic.user.username, user_url(topic.user) %><br/>
+      <%= topic.created_at.strftime("%a %b %d %Y, %I:%M%p") %>
+    </span>
+  </td>
+</tr>

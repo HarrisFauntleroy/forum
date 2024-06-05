@@ -1,8 +1,8 @@
 <%= form_with(model: category, local: true) do |form| %>
   <% if category.errors.any? %>
-    <div>
-      <h2><%= pluralize(category.errors.count, "error") %>
-        <%= t("prohibited_this_category_from_being_saved") %>:</h2>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(category.errors.count, "error") %>
+        <%= t("prohibited_this_category_from_being_saved") %>:</h4>
       <ul>
         <% category.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -11,13 +11,14 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div>
-    <%= link_to t("go_back"), :back %>
-    <%= form.submit t("submit") %>
+  <div class="mb-3">
+    <%= link_to t("go_back"), :back, class: "btn btn-secondary" %>
+    <%= form.submit category.new_record? ? t("create_category") : t("edit_category"),
+                class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -21,7 +21,7 @@ describe 'Categories', type: :system, js: true do
 
     within('#new_category') do
       fill_in 'category_name', with: 'Testing Category'
-      click_button 'Submit'
+      click_button 'Create Category'
     end
 
     # Admin sees the category
@@ -37,7 +37,7 @@ describe 'Categories', type: :system, js: true do
 
     within('#edit_category') do
       fill_in 'category_name', with: 'New Category Name'
-      click_button 'Submit'
+      click_button 'Edit Category'
     end
 
     # Admin sees the updated category

@@ -1,8 +1,8 @@
 <%= form_with(model: [@forum, topic], local: true) do |form| %>
   <% if topic.errors.any? %>
-    <div>
-      <h2><%= pluralize(topic.errors.count, "error") %>
-        <%= t("prohibited_this_topic_from_being_saved") %>:</h2>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(topic.errors.count, "error") %>
+        <%= t("prohibited_this_topic_from_being_saved") %>:</h4>
       <ul>
         <% topic.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -11,26 +11,28 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+  <div class="mb-3">
+    <%= form.label :content, class: "form-label" %>
+    <%= form.text_area :content, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :sticky %>
-    <%= form.check_box :sticky %>
-
-    <%= form.label :announcement %>
-    <%= form.check_box :announcement %>
+  <div class="form-check form-check-inline">
+    <%= form.check_box :sticky, class: "form-check-input", id: "sticky" %>
+    <%= form.label :sticky, class: "form-check-label", for: "sticky" %>
   </div>
 
-  <div>
-    <%= link_to t("go_back"), :back %>
-    <%= form.submit t("create_topic") %>
+  <div class="form-check form-check-inline">
+    <%= form.check_box :announcement, class: "form-check-input", id: "announcement" %>
+    <%= form.label :announcement, class: "form-check-label", for: "announcement" %>
+  </div>
+
+  <div class="mt-3">
+    <%= link_to t("go_back"), :back, class: "btn btn-secondary" %>
+    <%= form.submit t("create_topic"), class: "btn btn-primary" %>
   </div>
 <% end %>

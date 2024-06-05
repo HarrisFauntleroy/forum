@@ -6,7 +6,6 @@ en:
   are_you_sure: Are you sure?
   author: Author
   back_to_top: Back to top
-  can: can
   cancel_my_account: Cancel my account
   change_my_password: Change my password
   characters_minimum: characters minimum
@@ -14,10 +13,11 @@ en:
   closed_thread: Closed Thread
   coffee: Coffee
   comment: Comment
-  comment_replies_uou: comment replies - You
   comments: Comments
   confirm_my_account: Confirm my account
   confirm_new_password: Confirm new password
+  create_category: Create Category
+  create_forum: Create Forum
   create_topic: Create Topic
   currently_waiting_confirmation_for: 'Currently waiting confirmation for: '
   delete: "🗑️"
@@ -37,7 +37,6 @@ en:
   edit_comment: Edit Comment
   edit_forum: Edit Forum
   edit_topic: Edit Topic
-  edit_your_comments: edit your comments
   error_404_not_found: Error 404 - Not Found
   errors:
     messages:
@@ -45,6 +44,7 @@ en:
   forum: Forum
   forum_threads: Forum Threads
   forums: Forums
+  go: Go
   go_back: Go Back
   go_home: Go Home
   go_to_page: Go to page
@@ -85,6 +85,7 @@ en:
   replies: Replies
   reply: Reply
   resend_confirmation_instructions: Resend confirmation instructions
+  search: Search
   send_me_reset_password_instructions: Send me reset password instructions
   site_rules: Site Rules
   site_rules_1: By registering as a user of this website, you agree to these rules, and you agree to accept whatever consequences are deemed appropriate by our staff for violations of these rules. If you do not agree to accept these rules, it is important that you do not register, and do not post.
@@ -119,13 +120,13 @@ en:
   site_rules_8: Be careful where the law is concerned. Script kiddies, 1337 hax0rz, kewl bomb kidz, etc, begone. This isn't the Jolly Roger's cookbook, or a warez site. Take that kind of stuff somewhere else. Some of what we discuss here may be illegal in certain states, or countries. If you don't think you should be posting it, don't. If you don't know if you should be reading it, don't. You are always responsible for being aware of the laws in your area. This site has a right and a responsibility to defend free speech; we won't censor anyone unless we are forced to. In return, we ask that you defend the site by being aware of your own legal rights and responsibilities.
   site_rules_9: Follow these rules! This should go without saying, but a lot of people tend to respond negatively when they find themselves being corrected. If you have a problem with a rule, take it to the suggestion box, or contact an administrator privately. Do not back-talk or debate the intent of a rule in a thread that has nothing to do with discussing rules.
   someone_has_requested_a_link_to_change_your_password_you_can_do_this_through_the_link_below: Someone has requested a link to change your password. You can do this through the link below
-  start_new_threads_you: start new threads - You
   starter: Starter
   sticky_closed: Sticky/Closed
   submit: Submit
   the_page_you_were_looking_for_doesnt_exist: The page you were looking for doesn't exist.
   there_are_no_comments_in_this_topic_yet: There are no comments in this topic yet
   there_are_no_topics_in_this_forum_yet: There are no topics in this forum yet.
+  this_forum_is_moderated_by: This forum is moderated by
   threads_opened: Threads Opened
   topic: Topic
   topics: Topics
@@ -137,7 +138,6 @@ en:
   we_need_your_current_password_to_confirm_your_changes: We need your current password to confirm your changes
   welcome: Welcome
   wrote: wrote
-  you: You
   you_can_confirm_your_account_email_through_the_link_below: You can confirm your account email through the link below
   your_account_has_been_locked_due_to_an_excessive_number_of_unsuccessful_sign_in_attempts: Your account has been locked due to an excessive number of unsuccessful sign in attempts
   your_password_wont_change_until_you_access_the_link_above_and_create_a_new_one: Your password won"t change until you access the link above and create a new one

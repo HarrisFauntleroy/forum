@@ -96,6 +96,5 @@ gem 'pundit'
 gem 'simplecov-formatter-badge', require: false
 gem 'view_component', '~> 3.12'
 
-gem "bootstrap"
-gem "sassc-rails"
-
+gem 'bootstrap'
+gem 'sassc-rails'
