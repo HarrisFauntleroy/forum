@@ -91,6 +91,8 @@ group :test do
 end
 
 gem 'devise', '~> 4.9'
+# gem 'responders', '~> 3.1'
+
 gem 'erb-formatter', '~> 0.7.2'
 gem 'pundit'
 gem 'simplecov-formatter-badge', require: false
