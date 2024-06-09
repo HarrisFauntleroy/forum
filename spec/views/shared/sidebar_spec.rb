@@ -9,11 +9,6 @@ RSpec.describe 'shared/_sidebar', type: :view do
     allow(view).to receive(:current_user).and_return(@user)
   end
 
-  it 'contains "Main Menu" section' do
-    render
-    expect(rendered).to have_content(t('main_menu'))
-  end
-
   describe 'should contain "Welcome" section' do
     it 'renders "Welcome" label' do
       render

@@ -25,6 +25,7 @@ en:
     change_your_password: Change your password
     didnt_receive_confirmation_instructions: Didn"t receive confirmation instructions?
     didnt_receive_unlock_instructions: Didn"t receive unlock instructions?
+    forgot_password: Forgot password?
     forgot_your_password: Forgot your contact?
     log_in: Log in
     omniauth_providers:
@@ -58,7 +59,6 @@ en:
   last_comment: Last Comment
   leave_blank_if_you_dont_want_to_change_it: Leave blank if you don"t want to change it
   location: Location
-  main_menu: Main Menu
   moderator: Moderator
   moderators: Moderators
   new_category: New Category

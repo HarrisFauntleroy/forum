@@ -24,7 +24,6 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th style="width: 3%">&nbsp;</th>
         <th style="width: 47%"><%= t("topic") %></th>
         <th class="text-center" style="width: 20%"><%= t("starter") %></th>
         <th class="text-center" style="width: 5%"><%= t("replies") %></th>
@@ -35,7 +34,6 @@
     <tbody>
       <% if @forum.topics.where(sticky: true).or(@forum.topics.where(announcement: true)).any? %>
         <tr>
-          <td>&nbsp;</td>
           <td colspan="6"><b><%= t("important_threads") %></b></td>
         </tr>
         <% @forum.topics.where(sticky: true).or(@forum.topics.where(announcement: true)).order(announcement: :desc, created_at: :desc).each do |topic| %>
@@ -44,7 +42,6 @@
       <% end %>
 
       <tr>
-        <td>&nbsp;</td>
         <td colspan="6"><b><%= t("forum_threads") %></b></td>
       </tr>
       <% if @forum.topics.where(sticky: false).or(@forum.topics.where(announcement: false)).any? %>

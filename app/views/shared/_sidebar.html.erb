@@ -1,36 +1,41 @@
-<aside class="sidebar">
-  <div>
-    <span><%= t("main_menu") %></span>
-    <ul>
-      <li><%= link_to t("home"), root_path, id: "home_link" %></li>
-      <li><%= link_to t("forum"), forums_path, id: "forums_link" %></li>
+<aside class="sidebar p-3">
+  <div class="mb-3">
+    <ul class="list-unstyled">
+      <li><%= link_to t("home"), root_path, id: "home_link", class: "nav-link" %></li>
+      <li><%= link_to t("forum"), forums_path, id: "forums_link", class: "nav-link" %></li>
     </ul>
   </div>
-  <hr/>
+  <hr>
   <div>
-    <span><%= t("welcome") %></span>
-    <div>
-      <% if user_signed_in? %>
-        <div style="margin-bottom: 4px;">
-          <%= t("welcome") %>
-          <%= link_to current_user.username, current_user %>!
-        </div>
-        <div>
-          <% if current_user&.admin? %>
-            <div><%= t("admin") %></div>
-          <% elsif current_user&.moderator? %>
-            <div><%= t("moderator") %></div>
-          <% else %>
-            <div><%= t("user") %></div>
-          <% end %>
-          <div><%= t("registered_member", number: current_user.id) %></div>
-          <%= button_to t("devise.sign_out"), destroy_user_session_path, method: :delete %>
-        </div>
-      <% else %>
-        <%= render "devise/sessions/new" %>
-        <div>[<%= link_to "Sign up", new_user_registration_path %>]</div>
-        <div>[<%= link_to "Forgot password?", new_user_password_path %>]</div>
-      <% end %>
-    </div>
+    <% if user_signed_in? %>
+      <div class="mb-2">
+        <%= t("welcome") %>
+        <%= link_to current_user.username, current_user %>!
+      </div>
+      <div>
+        <% if current_user&.admin? %>
+          <div class="badge bg-danger"><%= t("admin") %></div>
+        <% elsif current_user&.moderator? %>
+          <div class="badge bg-warning text-dark"><%= t("moderator") %></div>
+        <% else %>
+          <div class="badge bg-secondary"><%= t("user") %></div>
+        <% end %>
+        <div><%= t("registered_member", number: current_user.id) %></div>
+        <%= button_to t("devise.sign_out"),
+        destroy_user_session_path,
+        method: :delete,
+        class: "btn btn-outline-danger mt-2" %>
+      </div>
+    <% else %>
+      <%= render "devise/sessions/new" %>
+      <div class="mt-2">
+        <%= link_to t("devise.sign_up"),
+        new_user_registration_path,
+        class: "btn btn-outline-primary btn-sm" %>
+        <%= link_to t("devise.forgot_password"),
+        new_user_password_path,
+        class: "btn btn-outline-secondary btn-sm" %>
+      </div>
+    <% end %>
   </div>
 </aside>
