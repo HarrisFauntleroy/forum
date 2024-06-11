@@ -100,3 +100,5 @@ gem 'view_component', '~> 3.12'
 
 gem 'bootstrap'
 gem 'sassc-rails'
+
+gem 'kaminari'
