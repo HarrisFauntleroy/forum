@@ -7,11 +7,12 @@ class TopicsController < ApplicationController
   before_action :set_topic, only: %i[show edit update destroy]
 
   def index
-    @topics = Topic.all.includes(:user, :comments)
+    @topics = Topic.page(params[:page]).per(10).includes(:user, :comments)
   end
 
   def show
-    @topic = @forum.topics.includes(:user, comments: :user).find(params[:id])
+    @topic = Topic.find(params[:id])
+    @comments = @topic.comments.page(params[:page]).per(10)
 
     @breadcrumbs = [
       { title: 'Home', path: root_path },
@@ -19,6 +20,7 @@ class TopicsController < ApplicationController
       { title: @forum.name, path: forum_path(@forum) },
       { title: @topic.title, path: forum_topic_path(@forum, @topic) }
     ]
+    @users_presenter = UsersPresenter.new(User.all)
   end
 
   def new

@@ -1,9 +1,9 @@
 <aside class="sidebar p-3">
   <div class="mb-3">
-    <ul class="list-unstyled">
-      <li><%= link_to t("home"), root_path, id: "home_link", class: "nav-link" %></li>
-      <li><%= link_to t("forum"), forums_path, id: "forums_link", class: "nav-link" %></li>
-    </ul>
+    <div class="list-group">
+      <%= link_to t("home"), root_path, id: "home_link", class: "nav-link list-group-item list-group-item-action" %>
+      <%= link_to t("forum"), forums_path, id: "forums_link", class: "nav-link list-group-item list-group-item-action" %>
+    </div>
   </div>
   <hr>
   <div>
