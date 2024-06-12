@@ -5,13 +5,11 @@ require 'rails_helper'
 RSpec.describe 'Admins', type: :system, js: true do
   let(:admin) { create(:user, :admin) }
 
-  before do
-    sign_in admin
-  end
-
   it 'admin logs in' do
-    visit root_path
-    expect(page).to have_text("Welcome #{admin.username}!")
+    sign_in admin
+
+    expect(page).to have_text(admin.username)
+    find('#user-profile').click
     expect(page).to have_text('Admin')
   end
 
