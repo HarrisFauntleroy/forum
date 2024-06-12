@@ -30,9 +30,9 @@
           </tr>
         </tbody>
       </table>
-      
+
       <% if params[:page].to_i <= 1 %>
-        <%= render partial: 'topics/topic', locals: { topic: @topic } %>
+        <%= render partial: "topics/topic", locals: { topic: @topic } %>
       <% end %>
       <table style="width:100%" class="nforumholder" cellpadding="0" cellspacing="0">
         <tbody>
@@ -53,8 +53,8 @@
               <tr>
                 <td class="nforumcaption3" style="vertical-align:middle; width:20%;">
                   <a href="../../user.php?id.1225"><b>
-                    <%= link_to @topic.user.username, user_url(@topic.user) %>
-                  </b></a>
+                      <%= link_to @topic.user.username, user_url(@topic.user) %>
+                    </b></a>
                 </td>
                 <td class="nforumcaption3" style="vertical-align:middle; width:80%;">
                   <table cellspacing="0" cellpadding="0" style="width:100%">
@@ -84,7 +84,8 @@
                     <span class="smalltext">
                       <%= t("registered_member", number: @topic.user.id) %>
                     </span>
-                    <%= t("joined") %>: Fri Jan 11 2008, 07:24PMLocation: Beaumont, Texas, USAPosts: 1814
+                    <%= t("joined") %>: Fri Jan 11 2008, 07:24PMLocation: Beaumont, Texas,
+                    USAPosts: 1814
                   </span>
                 </td>
                 <td class="nforumthread" style="vertical-align:top">
@@ -152,12 +153,13 @@
             <%= paginate @comments %>
           </div>
         </div>
-        
+
         <table style="width:100%" class="nforumholder" cellpadding="0" cellspacing="0">
           <tbody>
             <tr>
               <td style="width:50%; text-align:left; vertical-align:top" class="nforumthread">
-                <b><%= t("moderators") %>: <%= @users_presenter.moderators_list %></b>
+                <b><%= t("moderators") %>:
+                  <%= @users_presenter.moderators_list %></b>
                 <form method="comment" action="">
                   <p><%= t("jump") %>:
                     <select name="forumjump" class="tbox">
@@ -183,7 +185,10 @@
                   </p>
                 </form>
               </td>
-              <td style="width:50%; text-align:right; vertical-align:top" class="nforumthread">
+              <td
+                style="width:50%; text-align:right; vertical-align:top"
+                class="nforumthread"
+              >
               </td>
             </tr>
           </tbody>
@@ -199,9 +204,6 @@
             </tr>
           </tbody>
         </table>
-        <div class="nforumdisclaimer" style="text-align:center"><%= t("powered_by") %>
-          <b><%= t("coffee") %></b>
-        </div>
       </div>
     </td>
   </div>
