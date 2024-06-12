@@ -72,7 +72,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each, type: :system, js: true) do
-    driven_by :selenium_chrome_headless
+    driven_by :headless_chrome
   end
 
   config.after do
