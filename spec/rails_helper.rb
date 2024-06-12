@@ -64,6 +64,9 @@ RSpec.configure do |config|
 
   config.include Warden::Test::Helpers
 
+  # Include authentication helpers for system tests
+  config.include AuthenticationHelpers, type: :system
+
   config.before(:each, type: :system) do
     driven_by :rack_test
   end
