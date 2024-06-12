@@ -1,123 +1,116 @@
-<div class="container">
-  <div class="row mb-3">
-    <div class="col">
-      <h1><%= t("forums") %></h1>
-    </div>
+<div class="row mb-3">
+  <div class="col">
+    <h1><%= t("forums") %></h1>
   </div>
+</div>
 
-  <%= render "breadcrumbs" %>
+<%= render "breadcrumbs" %>
 
-  <div class="row mb-3">
-    <div class="col-8">
-      <h2><%= @forum.name %></h2>
-      <%= render "pagination" %>
-    </div>
-    <div class="col-4 text-end">
-      <% if policy(@forum).create_topic? %>
-        <%= link_to new_forum_topic_path(@forum), class: "btn btn-primary" do %>
-          <%= t("new_topic") %>
-        <% end %>
+<div class="row mb-3">
+  <div class="col-8">
+    <h2><%= @forum.name %></h2>
+    <%= render "pagination" %>
+  </div>
+  <div class="col-4 text-end">
+    <% if policy(@forum).create_topic? %>
+      <%= link_to new_forum_topic_path(@forum), class: "btn btn-primary" do %>
+        <%= t("new_topic") %>
       <% end %>
-    </div>
+    <% end %>
   </div>
+</div>
 
-  <table class="table table-bordered">
-    <thead>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="width: 47%"><%= t("topic") %></th>
+      <th class="text-center" style="width: 20%"><%= t("starter") %></th>
+      <th class="text-center" style="width: 5%"><%= t("replies") %></th>
+      <th class="text-center" style="width: 5%">Views</th>
+      <th class="text-center" style="width: 20%">Last Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @forum.topics.where(sticky: true).or(@forum.topics.where(announcement: true)).any? %>
       <tr>
-        <th style="width: 47%"><%= t("topic") %></th>
-        <th class="text-center" style="width: 20%"><%= t("starter") %></th>
-        <th class="text-center" style="width: 5%"><%= t("replies") %></th>
-        <th class="text-center" style="width: 5%">Views</th>
-        <th class="text-center" style="width: 20%">Last Comment</th>
+        <td colspan="6"><b><%= t("important_threads") %></b></td>
       </tr>
-    </thead>
-    <tbody>
-      <% if @forum.topics.where(sticky: true).or(@forum.topics.where(announcement: true)).any? %>
-        <tr>
-          <td colspan="6"><b><%= t("important_threads") %></b></td>
-        </tr>
-        <% @forum.topics.where(sticky: true).or(@forum.topics.where(announcement: true)).order(announcement: :desc, created_at: :desc).each do |topic| %>
-          <%= render partial: "topic_row", locals: { topic: topic } %>
-        <% end %>
+      <% @forum.topics.where(sticky: true).or(@forum.topics.where(announcement: true)).order(announcement: :desc, created_at: :desc).each do |topic| %>
+        <%= render partial: "topic_row", locals: { topic: topic } %>
       <% end %>
+    <% end %>
 
+    <tr>
+      <td colspan="6"><b><%= t("forum_threads") %></b></td>
+    </tr>
+    <% if @forum.topics.where(sticky: false).or(@forum.topics.where(announcement: false)).any? %>
+      <% @forum.topics.where(sticky: false).and(@forum.topics.where(announcement: false)).each do |topic| %>
+        <%= render partial: "topic_row", locals: { topic: topic } %>
+      <% end %>
+    <% else %>
       <tr>
-        <td colspan="6"><b><%= t("forum_threads") %></b></td>
+        <td colspan="6"><p><%= t("there_are_no_topics_in_this_forum_yet") %></p></td>
       </tr>
-      <% if @forum.topics.where(sticky: false).or(@forum.topics.where(announcement: false)).any? %>
-        <% @forum.topics.where(sticky: false).and(@forum.topics.where(announcement: false)).each do |topic| %>
-          <%= render partial: "topic_row", locals: { topic: topic } %>
-        <% end %>
-      <% else %>
-        <tr>
-          <td colspan="6"><p><%= t("there_are_no_topics_in_this_forum_yet") %></p></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <% end %>
+  </tbody>
+</table>
 
-  <%= render "pagination" %>
+<%= render "pagination" %>
 
-  <div class="row">
-    <div class="col">
-      <form class="form-inline">
-        <div class="mb-3">
-          <label for="forumjump" class="form-label"><%= t("jump_to_forum") %>:</label>
-          <select class="form-select" name="forumjump" id="forumjump">
-            <option value="2">General Chatting</option>
-          </select>
-          <button type="submit" class="btn btn-primary" name="fjsubmit"><%= t("go") %></button>
-        </div>
-      </form>
-    </div>
+<div class="row">
+  <div class="col">
+    <form class="form-inline">
+      <div class="mb-3">
+        <label for="forumjump" class="form-label"><%= t("jump_to_forum") %>:</label>
+        <select class="form-select" name="forumjump" id="forumjump">
+          <option value="2">General Chatting</option>
+        </select>
+        <button type="submit" class="btn btn-primary" name="fjsubmit"><%= t("go") %></button>
+      </div>
+    </form>
   </div>
+</div>
 
-  <div class="row mt-3">
-    <div class="col">
-      <span><%= t("this_forum_is_moderated_by") %>:
-        <%= @users_presenter.moderators_list %></span>
-    </div>
-    <div class="col text-end">
-      <span>1 user is browsing this forum at the moment (0 members, 1 guest)</span>
-    </div>
+<div class="row mt-3">
+  <div class="col">
+    <span><%= t("this_forum_is_moderated_by") %>:
+      <%= @users_presenter.moderators_list %></span>
   </div>
-
-  <div class="row mt-3">
-    <div class="col-6">
-      <table class="table">
-        <tr>
-          <td>New comments</td>
-          <td><%= t("no_new_comments") %></td>
-          <td>Sticky</td>
-          <td><%= t("announcement") %></td>
-        </tr>
-        <tr>
-          <td><%= t("new_comments_popular") %></td>
-          <td><%= t("no_new_comments_popular") %></td>
-          <td><%= t("sticky_closed") %></td>
-          <td><%= t("closed_thread") %></td>
-        </tr>
-      </table>
-    </div>
-    <div class="col-6 text-end">
-      <br/><br/>
-      <form method="get" action="../../search.php" class="d-flex">
-        <input
-          class="form-control me-2"
-          type="search"
-          name="q"
-          placeholder="Search"
-          aria-label="Search"
-        >
-        <input type="hidden" name="r" value="0">
-        <input type="hidden" name="ref" value="forum">
-        <button class="btn btn-outline-success" type="submit" name="s"><%= t("search") %></button>
-      </form>
-    </div>
+  <div class="col text-end">
+    <span>1 user is browsing this forum at the moment (0 members, 1 guest)</span>
   </div>
+</div>
 
-  <div class="text-center mt-3">
-    <%= t("powered_by") %>
-    <b><%= t("coffee") %></b>
+<div class="row mt-3">
+  <div class="col-6">
+    <table class="table">
+      <tr>
+        <td>New comments</td>
+        <td><%= t("no_new_comments") %></td>
+        <td>Sticky</td>
+        <td><%= t("announcement") %></td>
+      </tr>
+      <tr>
+        <td><%= t("new_comments_popular") %></td>
+        <td><%= t("no_new_comments_popular") %></td>
+        <td><%= t("sticky_closed") %></td>
+        <td><%= t("closed_thread") %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-6 text-end">
+    <br/><br/>
+    <form method="get" action="../../search.php" class="d-flex">
+      <input
+        class="form-control me-2"
+        type="search"
+        name="q"
+        placeholder="Search"
+        aria-label="Search"
+      >
+      <input type="hidden" name="r" value="0">
+      <input type="hidden" name="ref" value="forum">
+      <button class="btn btn-outline-success" type="submit" name="s"><%= t("search") %></button>
+    </form>
   </div>
 </div>
