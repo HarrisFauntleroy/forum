@@ -6,12 +6,12 @@ en:
   are_you_sure: Are you sure?
   author: Author
   back_to_top: Back to top
+  branding: Branding
   cancel_my_account: Cancel my account
   change_my_password: Change my password
   characters_minimum: characters minimum
   click_the_link_below_to_unlock_your_account: Click the link below to unlock your account
   closed_thread: Closed Thread
-  coffee: Coffee
   comments: Comments
   confirm_my_account: Confirm my account
   confirm_new_password: Confirm new password
@@ -24,12 +24,12 @@ en:
     change_your_password: Change your password
     didnt_receive_confirmation_instructions: Didn"t receive confirmation instructions?
     didnt_receive_unlock_instructions: Didn"t receive unlock instructions?
-    forgot_password: Forgot password?
     forgot_your_password: Forgot your contact?
     log_in: Log in
     omniauth_providers:
       sign_in_with: 'Sign in with '
     resend_unlock_instructions: Resend unlock instructions
+    sign_in: Sign in
     sign_out: Sign out
     sign_up: Sign up
   edit: "✏️"
@@ -41,7 +41,6 @@ en:
   errors:
     messages:
       not_saved: There were %{count} errors preventing this %{resource} from being saved
-  forum: Forum
   forum_threads: Forum Threads
   forums: Forums
   go: Go
@@ -49,7 +48,6 @@ en:
   go_home: Go Home
   go_to_page: Go to page
   hello: Hello
-  home: Home
   if_you_didnt_request_this_please_ignore_this_email: If you didn"t request this, please ignore this email
   important_threads: Important Threads
   joined: Joined
@@ -66,12 +64,12 @@ en:
   new_forum: New Forum
   new_password: New password
   new_topic: New Topic
+  news: News
   next_thread: Next Thread
   no_comments_yet: No comments yet
   no_new_comments: No new comments
   no_new_comments_popular: No new comments [popular]
   no_recent_activity_to_display: No recent activity to display
-  powered_by: Powered by
   previous_thread: Previous Thread
   prohibited_this_category_from_being_saved: prohibited this category from being saved
   prohibited_this_comment_from_being_saved: prohibited this comment from being saved
@@ -79,7 +77,6 @@ en:
   prohibited_this_topic_from_being_saved: prohibited this topic from being saved
   recent_activity: Recent Activity
   recent_comments: Recent Comments
-  register: Register
   registered_member: 'Registered Member #%{number}'
   replies: Replies
   reply: Reply
