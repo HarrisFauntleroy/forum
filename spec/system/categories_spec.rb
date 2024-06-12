@@ -7,13 +7,7 @@ describe 'Categories', type: :system, js: true do
 
   it 'admin creates a category' do
     # Admin logs in
-    visit root_path
-
-    within('#new_session') do
-      fill_in 'user_email', with: admin.email
-      fill_in 'user_password', with: admin.password
-      click_button 'Log in'
-    end
+    sign_in admin
 
     # Admin creates a category
     find('#forums_link').click
@@ -56,13 +50,8 @@ describe 'Categories', type: :system, js: true do
   it 'regular user cannot create a category' do
     # Regular user logs in
     user = create(:user)
-    visit root_path
-
-    within('#new_session') do
-      fill_in 'user_email', with: user.email
-      fill_in 'user_password', with: user.password
-      click_button 'Log in'
-    end
+    sign_in user
+    find('#forums_link').click
 
     # Regular user cannot create a category
     expect(page).not_to have_css('#new_category_link')
