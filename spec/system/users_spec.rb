@@ -3,48 +3,47 @@
 require 'rails_helper'
 
 describe 'Users', type: :system, js: true do
-  let(:user) { create(:user) }
-
   it 'user signs up' do
-    visit new_user_registration_path
-
-    within('#new_registration') do
-      fill_in 'user_email', with: 'newuser@example.com'
-      fill_in 'user_username', with: 'newuser'
-      fill_in 'user_password', with: 'Password!1'
-      fill_in 'user_password_confirmation', with: 'Password!1'
-      click_button 'Sign up'
-    end
+    user = build(:user)
+    visit root_path
+    click_link 'Sign up'
+    fill_in 'user_email', with: user.email
+    fill_in 'user_username', with: user.username
+    fill_in 'user_password', with: user.password
+    fill_in 'user_password_confirmation', with: user.password
+    click_button 'Sign up'
 
     expect(page).to have_current_path(root_path)
+    find('#user-profile').click
+    expect(page).to have_text('User')
     expect(page).to have_text('Sign out')
   end
 
   it 'user logs in' do
+    user = create(:user)
     visit root_path
+    click_link 'Sign in'
+    fill_in 'user_email', with: user.email
+    fill_in 'user_password', with: user.password
+    click_button 'Log in'
 
-    within('#new_session') do
-      fill_in 'user_email', with: user.email
-      fill_in 'user_password', with: user.password
-      click_button 'Log in'
-    end
-
-    expect(page).to have_text("Welcome #{user.username}!")
+    expect(page).to have_current_path(root_path)
+    find('#user-profile').click
+    expect(page).to have_text('User')
+    expect(page).to have_text('Sign out')
   end
 
   it 'user logs out' do
-    visit root_path
+    user = create(:user)
+    sign_in user
 
-    within('#new_session') do
-      fill_in 'user_email', with: user.email
-      fill_in 'user_password', with: user.password
-      click_button 'Log in'
-    end
-
+    expect(page).to have_current_path(root_path)
+    find('#user-profile').click
     click_button 'Sign out'
+
     expect(page).to have_current_path(root_path)
     expect(page).to have_text('Sign up')
-    expect(page).to have_text('Log in')
+    expect(page).to have_text('Sign in')
   end
 
   it 'user resets password' do
