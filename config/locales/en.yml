@@ -135,5 +135,6 @@ en:
   welcome: Welcome
   wrote: wrote
   you_can_confirm_your_account_email_through_the_link_below: You can confirm your account email through the link below
+  you_must_be_logged_in_to_comment: You must be logged in to comment
   your_account_has_been_locked_due_to_an_excessive_number_of_unsuccessful_sign_in_attempts: Your account has been locked due to an excessive number of unsuccessful sign in attempts
   your_password_wont_change_until_you_access_the_link_above_and_create_a_new_one: Your password won"t change until you access the link above and create a new one
