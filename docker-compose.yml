@@ -8,14 +8,14 @@ services:
     env_file:
       - .env.production
     depends_on:
-      - db_forum
+      - db-forum
 
-  db_forum:
-    image: postgres:13
+  db-forum:
+    image: postgres:16
     env_file:
       - .env.production
     volumes:
-      - forum_pgdata:/var/lib/postgresql/data
+      - forum-pgdata:/var/lib/postgresql/data
 
 volumes:
-  forum_pgdata:
+  forum-pgdata:
