@@ -33,7 +33,7 @@
               <%= current_user.username %>
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="user-profile">
-              <% if current_user.admin? %>
+              <% if current_user&.admin? %>
                 <li><span class="dropdown-item text-danger"><%= t("admin") %></span></li>
               <% elsif current_user.moderator? %>
                 <li><span class="dropdown-item text-warning"><%= t("moderator") %></span></li>
