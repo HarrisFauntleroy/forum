@@ -13,140 +13,114 @@
     <a href="https://github.com/HarrisFauntleroy/forum/actions">
         <img alt="GitHub branch checks state" src="https://img.shields.io/github/checks-status/HarrisFauntleroy/forum/main?&style=flat">
     </a>
-    <a href="https://github.com/HarrisFauntleroy/forum/issues?q=is%3Aopen+is%3Aissue">
+    <a href="https://github.com/HarrisFauntleroy/forum/issues">
         <img alt="GitHub issues" src="https://img.shields.io/github/issues/HarrisFauntleroy/forum?&style=flat">
     </a>
-    <a href="https://github.com/HarrisFauntleroy/forum/issues?q=is%3Aopen+is%3Aissue">
+    <a href="https://github.com/HarrisFauntleroy/forum/issues">
         <img alt="GitHub issues" src="https://img.shields.io/github/last-commit/HarrisFauntleroy/forum?&style=flat">
     </a>
     </a>
-    <a href="https://github.com/HarrisFauntleroy/forum/issues?q=is%3Aopen+is%3Aissue">
+    <a href="https://github.com/HarrisFauntleroy/forum/issues">
         <img alt="GitHub issues" src="https://img.shields.io/github/commit-activity/w/HarrisFauntleroy/forum?&style=flat">
     </a>
 </p>
 
+## Overview
+
 A full-featured forum application built with Ruby on Rails.
 
-## Table of Contents ⚙️
+## Prerequisites
 
-1. [Features](#features-💫)
-2. [Local Development](#local-development-💻)
-3. [Contributing](#contributing-🤝)
-4. [License](#license-⚖️)
-5. [Disclaimer](#disclaimer-🚨)
+Before setting up the project, ensure you have the following installed:
 
-## Features 💫
+- Ruby (via [rvm](https://rvm.io/) or [rbenv](https://github.com/rbenv/rbenv))
+- Bundler (`gem install bundler`)
+- PostgreSQL (via Homebrew or [Postgres.app](https://postgresapp.com/))
+- Redis (for caching and background jobs)
 
-**User Authentication**
-- [x] Users can sign up, sign in, and sign out.
+## Setup
 
-**Administrative Controls**
-- [x] Admins can create categories to group forums.
-- [x] Admins and moderators can create forums within categories.
-- [ ] Moderators are assigned to individual forums.
-
-**User Interaction**
-- [x] Users can create topics, comment on topics, and reply to comments.
-- [ ] Private messaging between users.
-- [ ] Reporting system for posts, with moderation handled by admins and moderators.
-
-**Content Formatting**
-- [ ] Supports LaTeX/KaTeX for mathematical expressions.
-- [ ] Markdown support for text formatting.
-- [ ] Users can upload and share images.
-
-## Local Development 💻
-
-Here's how you can set up forum in your local dev environment:
-
-**Requirements**
-
-- Ruby >= 3.3.1
-
-Ruby is managed using Ruby Version Manager
+### Ruby Installation
 
 ```bash
-# Update ruby version
-rvm use <version>
+brew install rvm
+rvm install $(cat .ruby-version)
+rvm use
 ```
 
-**Installation**
+### Dependencies
 
-Install the required gems by running the following command:
+Install project dependencies:
 
 ```bash
 bundle install
 ```
 
-To migrate the database, run the following command:
+### Database Setup
+
+Create and initialize the PostgreSQL database:
 
 ```bash
-rails db:migrate
+bundle exec rails db:create
+bundle exec rails db:migrate
+bundle exec rails db:seed
 ```
 
-```bash
-rails db:create db:migrate db:seed
-```
-
-**Development**
-
+For a fresh start:
 ```bash
 rails db:drop db:create db:schema:load db:migrate db:seed
 ```
 
-To run the specs, a single spec, or a single test:
+## Development
 
-```bash
-rails rspec
-rspec spec/controllers/user_controller_spec.rb
-rspec spec/controllers/user_controller_spec.rb:32 
-```
-
-To start the server, run the following command:
+Start the Rails server in development mode:
 
 ```bash
 rails server
+# or
 rails s
 ```
 
-To run the rails console, run the following command:
-
+Access the Rails console:
 ```bash
 rails console
+# or
 rails c
 ```
 
-**Rake Commands**
+The application will be available at `http://localhost:3000`.
 
-Find missing specs:
+_For additional commands and options, please refer to the Makefile._
 
-```bash
-rake spec_check:<views | models | controllers | all>    
-```
+### Testing
 
-**Makefile Commands**
-
-To make life easier, there is a Makefile with some common commands:
-
-To run [i18n-tasks](https://github.com/glebm/i18n-tasks) normalize and health
-```bash
-make i18n
-```
-
-To format and lint the code
+Run the full test suite:
 
 ```bash
-make pretty
+rails rspec
 ```
 
-## Contributing 🤝
+Run specific tests:
 
+```bash
+# Run all tests in a specific file
+rspec spec/controllers/user_controller_spec.rb
+# Run a specific test
+rspec spec/controllers/user_controller_spec.rb:32
+```
 
-## License ⚖️
+### Utility Commands
 
+_For additional commands and options, please refer to the Makefile._
 
-## Disclaimer 🚨
+## Contributing
 
-This software is currently a work in progress and is considered in ALPHA state.
-Features will appear and disappear, APIs will be changed, bugs will be
-introduced, your feedback is always welcome! 🚧🔧
+We welcome contributions! Please see our [contribution guidelines](CONTRIBUTING.md) for details on how to get involved.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE.md) for details.
+
+## Disclaimer
+
+This software is currently in alpha development and should be used with caution. Features and APIs may change as development continues. Your feedback is valuable and appreciated!
