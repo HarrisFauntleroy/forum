@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Users', js: true do
+describe 'Users', type: :system do
   it 'user signs up' do
     user = build(:user)
     visit root_path

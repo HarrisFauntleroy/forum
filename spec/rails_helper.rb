@@ -63,8 +63,8 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
-  config.include Devise::Test::IntegrationHelpers, type: :feature
-  config.include AuthenticationHelpers, type: :feature
+  config.include Devise::Test::IntegrationHelpers, type: :system
+  config.include AuthenticationHelpers, type: :system
 
   config.include Warden::Test::Helpers
 
@@ -73,7 +73,7 @@ RSpec.configure do |config|
   # end
 
   # config.before(:each, :js, type: :system) do
-  #   driven_by :headless_chrome
+  #   driven_by :selenium_chrome_headless
   # end
 
   config.after do
