@@ -23,6 +23,11 @@ db-console:
 	@echo "Opening the database console..."
 	bundle exec rails db
 
+.PHONY: db-create
+db-create:
+	@echo "Creating the database..."
+	bundle exec rails db:create
+
 .PHONY: db-reset
 db-reset:
 	@echo "Resetting the database..."
