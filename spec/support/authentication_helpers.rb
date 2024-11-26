@@ -7,18 +7,18 @@ module AuthenticationHelpers
     fill_in 'user_username', with: user.username
     fill_in 'user_password', with: user.password
     fill_in 'user_password_confirmation', with: user.password
-    click_button 'Sign up'
+    click_on 'Sign up'
   end
 
   def sign_in(user)
     visit new_user_session_path
     fill_in 'user_email', with: user.email
     fill_in 'user_password', with: user.password
-    click_button 'Log in'
+    click_on 'Log in'
   end
 
   def sign_out
     find('#user-profile').click
-    click_button 'Sign out'
+    click_on 'Sign out'
   end
 end

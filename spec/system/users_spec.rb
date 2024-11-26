@@ -6,12 +6,12 @@ describe 'Users', type: :system do
   it 'user signs up' do
     user = build(:user)
     visit root_path
-    click_link 'Sign up'
+    click_on 'Register'
     fill_in 'user_email', with: user.email
     fill_in 'user_username', with: user.username
     fill_in 'user_password', with: user.password
     fill_in 'user_password_confirmation', with: user.password
-    click_button 'Sign up'
+    click_on 'Sign up'
 
     expect(page).to have_current_path(root_path)
     find('#user-profile').click
@@ -22,10 +22,10 @@ describe 'Users', type: :system do
   it 'user logs in' do
     user = create(:user)
     visit root_path
-    click_link 'Sign in'
+    click_on 'Sign in'
     fill_in 'user_email', with: user.email
     fill_in 'user_password', with: user.password
-    click_button 'Log in'
+    click_on 'Log in'
 
     expect(page).to have_current_path(root_path)
     find('#user-profile').click
@@ -39,10 +39,10 @@ describe 'Users', type: :system do
 
     expect(page).to have_current_path(root_path)
     find('#user-profile').click
-    click_button 'Sign out'
+    click_on 'Sign out'
 
     expect(page).to have_current_path(root_path)
-    expect(page).to have_text('Sign up')
+    expect(page).to have_text('Register')
     expect(page).to have_text('Sign in')
   end
 
