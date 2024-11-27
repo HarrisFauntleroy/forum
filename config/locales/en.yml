@@ -80,6 +80,8 @@ en:
   no_new_comments: No new comments
   no_new_comments_popular: No new comments [popular]
   no_recent_activity_to_display: No recent activity to display
+  not_authorized: You are not authorized to access this page.
+  please_sign_in: Please sign in.
   previous_thread: Previous Thread
   prohibited_this_category_from_being_saved: prohibited this category from being saved
   prohibited_this_comment_from_being_saved: prohibited this comment from being saved
@@ -147,8 +149,6 @@ en:
   we_need_your_current_password_to_confirm_your_changes: We need your current password to confirm your changes
   welcome: Welcome
   wrote: wrote
-  you_are_not_authorized_to_access_this_page: You are not authorized to access this page.
-  you_are_not_authorized_to_perform_this_action: You are not authorized to perform this action.
   you_can_confirm_your_account_email_through_the_link_below: You can confirm your account email through the link below
   you_must_be_logged_in_to_comment: You must be logged in to comment
   your_account_has_been_locked_due_to_an_excessive_number_of_unsuccessful_sign_in_attempts: Your account has been locked due to an excessive number of unsuccessful sign in attempts
