@@ -52,7 +52,7 @@ class CommentsController < ApplicationController
 
     flash[:notice] = I18n.t('comment_has_been_deleted_successfully')
 
-   redirect_to forum_topic_path(@topic.forum, @topic), notice: I18n.t('comment_deleted')
+    redirect_to forum_topic_path(@topic.forum, @topic), notice: I18n.t('comment_deleted')
   end
 
   private
