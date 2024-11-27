@@ -139,7 +139,7 @@ describe CategoriesController, type: :controller do
 
       it 'does not allow deleting a category' do
         delete :destroy, params: { id: category.id }
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(forums_path)
       end
     end
 

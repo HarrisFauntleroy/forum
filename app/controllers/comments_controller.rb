@@ -30,9 +30,10 @@ class CommentsController < ApplicationController
     end
 
     if @comment.save
-      redirect_to forum_topic_path(@topic.forum, @topic), notice: t('comment_created')
+      redirect_to forum_topic_path(@topic.forum, @topic), notice: t('.success')
     else
-      render :new
+      flash.now[:error] = t('.failure')
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -40,19 +41,23 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      redirect_to forum_topic_path(@topic.forum, @topic), notice: t('comment_updated')
+      redirect_to forum_topic_path(@topic.forum, @topic), notice: t('.success')
     else
+      flash.now[:error] = t('.failure')
       render :edit
     end
   end
 
   def destroy
     authorize @comment
-    @comment.destroy
-
-    flash[:notice] = t('comment_has_been_deleted_successfully')
-
-    redirect_to forum_topic_path(@topic.forum, @topic), notice: t('comment_deleted')
+    
+    if @comment.destroy
+      flash[:notice] = t('.success')
+      redirect_to forum_topic_path(@topic.forum, @topic), notice: t('.success')
+    else
+      flash.now[:error] = t('.failure')
+      render :show
+    end
   end
 
   private
