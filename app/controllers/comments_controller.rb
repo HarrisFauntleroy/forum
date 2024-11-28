@@ -50,7 +50,7 @@ class CommentsController < ApplicationController
 
   def destroy
     authorize @comment
-    
+
     if @comment.destroy
       flash[:notice] = t('.success')
       redirect_to forum_topic_path(@topic.forum, @topic), notice: t('.success')
