@@ -7,6 +7,8 @@ class CategoriesController < ApplicationController
     @categories = Category.all.includes(:forums)
   end
 
+  def show; end
+
   def new
     @category = Category.new(user: current_user)
     authorize @category
@@ -20,9 +22,11 @@ class CategoriesController < ApplicationController
       redirect_to forums_path, notice: t('.success')
     else
       flash.now[:error] = t('.failure')
-      render :new
+      render :new, status: :unprocessable_entity, flash: { error: t('.failure') }
     end
   end
+
+  def edit; end
 
   def update
     if @category.update(category_params)

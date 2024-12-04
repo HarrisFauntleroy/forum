@@ -9,6 +9,11 @@ describe 'Moderators', type: :system do
     sign_in moderator
 
     expect(page).to have_text(moderator.username)
+  end
+
+  it 'displays moderator role in navigation' do
+    sign_in moderator
+
     find('#user-profile').click
     expect(page).to have_text('Moderator')
   end
