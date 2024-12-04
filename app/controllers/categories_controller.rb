@@ -21,7 +21,6 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to forums_path, notice: t('.success')
     else
-      flash.now[:error] = t('.failure')
       render :new, status: :unprocessable_entity, flash: { error: t('.failure') }
     end
   end
@@ -32,8 +31,7 @@ class CategoriesController < ApplicationController
     if @category.update(category_params)
       redirect_to forums_path, notice: t('.success')
     else
-      flash.now[:error] = t('.failure')
-      render :edit
+      render :edit, status: :unprocessable_entity, flash: { error: t('.failure') }
     end
   end
 
@@ -41,11 +39,9 @@ class CategoriesController < ApplicationController
     # authorize @category TODO: Implement Pundit
 
     if @category.destroy
-      flash[:notice] = t('.success')
       redirect_to forums_path, notice: t('.success')
     else
-      flash.now[:error] = t('.failure')
-      redirect_to forums_path, status: :unprocessable_entity
+      redirect_to forums_path, status: :unprocessable_entity, flash: { error: t('.failure') }
     end
   end
 
