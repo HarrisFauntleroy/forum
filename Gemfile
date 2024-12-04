@@ -63,6 +63,7 @@ group :development, :test do
   gem 'rubocop-i18n'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
+  gem 'rubocop-rake'
   gem 'rubocop-rspec'
   gem 'rubocop-rspec_rails'
   gem 'rubocop-thread_safety'
