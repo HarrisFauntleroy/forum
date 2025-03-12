@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby "3.3.6"
 
-gem "rails", ">= 7.1.3.2", "< 7.3"
+gem "rails", ">= 7.1.3.2", "< 8.0.3"
 
 # Replace the asset pipeline with Propshaft
 gem "sprockets-rails"
