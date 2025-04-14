@@ -11,7 +11,7 @@ services:
       - db-forum
 
   db-forum:
-    image: postgres:16
+    image: postgres:17
     env_file:
       - .env.production
     volumes:
